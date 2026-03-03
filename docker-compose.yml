@@ -8,7 +8,13 @@ services:
     volumes:
       - ./www:/var/www/html
     container_name: php
-
+    environment:
+     - HTTP_PROXY=http://10.10.254.219:3128/
+     - HTTPS_PROXY=http://10.10.254.219:3128/
+     - NO_PROXY=10.,192.168.,.sfnet,wpad,127.0.0.1,localhost
+     - http_proxy=http://10.10.254.219:3128/
+     - https_proxy=http://10.10.254.219:3128/
+     - no_proxy=10.,192.168.,.sfnet,wpad,127.0.0.1,localhost
   nginx:
     image: nginx:latest
     ports:
