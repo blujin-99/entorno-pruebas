@@ -1,0 +1,15 @@
+actor: ApiTester
+suite_namespace: App\Tests\Api
+modules:
+  enabled:
+    - REST:
+        url: http://localhost:8080
+        depends: Symfony
+    - Symfony:
+        app_path: 'src'
+        environment: 'test'
+    - Asserts
+
+gherkin:
+  contexts:
+    - Step\ApiUserSteps
